@@ -176,7 +176,7 @@ public class PostFinderImpl implements PostFinder {
 
     @Override
     public Mono<ListResult<ListedPostVo>> list(Integer page, Integer size) {
-        return postPublicQueryService.list(page, size, null, defaultComparator());
+        return postPublicQueryService.list(page, size, post -> contains(post.getSpec().getCategories(), "category-kDjZq"), defaultComparator());
     }
 
     @Override
